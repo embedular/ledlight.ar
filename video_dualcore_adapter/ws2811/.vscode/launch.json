@@ -1,0 +1,51 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "[SEGGER-JLink] edu_poncho_retrociaa",
+            "cwd": "${workspaceFolder}",
+            "executable": "${workspaceFolder}/build/edu_poncho_retrociaa-lpc4337/arm-none-eabi-gcc/debug_cortex-m0_O0/${workspaceFolderBasename}.elf",
+            "request": "launch",
+            "type": "cortex-debug",
+            "servertype": "jlink"
+        },
+        {
+            "name": "[OpenOCD/Cortex-M0] edu_poncho_retrociaa",
+            "cwd": "${workspaceFolder}",
+            "executable": "${workspaceFolder}/build/edu_poncho_retrociaa-lpc4337/arm-none-eabi-gcc/debug_cortex-m0_O0/${workspaceFolderBasename}.elf",
+            "request": "launch",
+            "type": "cortex-debug",
+            "servertype": "openocd",
+            "numberOfProcessors": 2,
+            "targetProcessor": 1,
+            "configFiles": [
+                "${env:LIB_EMBEDULAR_BASE}/embedul.ar/lib/target/lpc43xx/boards/lpcopen_edu_poncho_retrociaa/openocd/edu_poncho_retrociaa-lpc4337-ftdi.cfg"
+            ],
+            "svdFile": "${env:LIB_EMBEDULAR_BASE}/embedul.ar/lib/target/lpc43xx/svd/LPC43xx_43Sxx.svd",
+            "breakAfterReset": true
+        },
+        {
+            "name": "[SEGGER-JLink] retrociaa_standalone",
+            "cwd": "${workspaceFolder}",
+            "executable": "${workspaceFolder}/build/retrociaa_standalone-lpc4337/arm-none-eabi-gcc/debug_cortex-m0_O0/${workspaceFolderBasename}.elf",
+            "request": "launch",
+            "type": "cortex-debug",
+            "servertype": "jlink"
+        },
+        {
+            "name": "[OpenOCD/Cortex-M0] retrociaa_standalone",
+            "cwd": "${workspaceFolder}",
+            "executable": "${workspaceFolder}/build/retrociaa_standalone-lpc4337/arm-none-eabi-gcc/debug_cortex-m0_O0/${workspaceFolderBasename}.elf",
+            "request": "launch",
+            "type": "cortex-debug",
+            "servertype": "openocd",
+            "numberOfProcessors": 2,
+            "targetProcessor": 1,
+            "configFiles": [
+                "${env:LIB_EMBEDULAR_BASE}/embedul.ar/lib/target/lpc43xx/boards/lpcopen_retrociaa_standalone/openocd/retrociaa_standalone-lpc4337-ftdi.cfg"
+            ],
+            "svdFile": "${env:LIB_EMBEDULAR_BASE}/embedul.ar/lib/target/lpc43xx/svd/LPC43xx_43Sxx.svd",
+            "breakAfterReset": true
+        },
+    ]
+}

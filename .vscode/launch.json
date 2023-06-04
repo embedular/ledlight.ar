@@ -1,0 +1,85 @@
+// -----------------------------------------------------------------------------
+// embedul.ar launch configurations.
+// -----------------------------------------------------------------------------
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "[GDB] host",
+            "cwd": "${workspaceFolder}",
+            "request": "launch",
+            "type": "gdb",
+            "target": "${workspaceFolder}/build/binary/native_hosted/gcc/debug_generic_O0/${workspaceFolderBasename}.elf"
+        },
+        {
+            "name": "[JLink] edu_ciaa_retro_poncho",
+            "cwd": "${workspaceFolder}",
+            "executable": "${workspaceFolder}/build/binary/edu_ciaa_retro_poncho/arm-none-eabi-gcc/debug_cortex-m4_O0/${workspaceFolderBasename}.elf",
+            "request": "launch",
+            "type": "cortex-debug",
+            "servertype": "jlink"
+        },
+        {
+            "name": "[OpenOCD] edu_ciaa_retro_poncho-m4",
+            "cwd": "${workspaceFolder}",
+            "executable": "${workspaceFolder}/build/binary/edu_ciaa_retro_poncho/arm-none-eabi-gcc/debug_cortex-m4_O0/${workspaceFolderBasename}.elf",
+            "request": "launch",
+            "type": "cortex-debug",
+            "servertype": "openocd",
+            "numberOfProcessors": 2,
+            "targetProcessor": 0,
+            "configFiles": [
+                "${env:LIB_EMBEDULAR_PATH}/embedul.ar/source/arch/arm-cortex/lpc/18xx_43xx/openocd/edu_ciaa-ftdi.cfg"
+            ],
+            "svdFile": "${env:LIB_EMBEDULAR_PATH}/embedul.ar/source/arch/arm-cortex/lpc/18xx_43xx/svd/LPC43xx_43Sxx.svd"
+        },
+        {
+            "name": "[OpenOCD] edu_ciaa-m4",
+            "cwd": "${workspaceFolder}",
+            "executable": "${workspaceFolder}/build/binary/edu_ciaa/arm-none-eabi-gcc/debug_cortex-m4_O0/${workspaceFolderBasename}.elf",
+            "request": "launch",
+            "type": "cortex-debug",
+            "servertype": "openocd",
+            "numberOfProcessors": 2,
+            "targetProcessor": 0,
+            "configFiles": [
+                "${env:LIB_EMBEDULAR_PATH}/embedul.ar/source/arch/arm-cortex/lpc/18xx_43xx/openocd/edu_ciaa-ftdi.cfg"
+            ],
+            "svdFile": "${env:LIB_EMBEDULAR_PATH}/embedul.ar/source/arch/arm-cortex/lpc/18xx_43xx/svd/LPC43xx_43Sxx.svd"
+        },
+        {
+            "name": "[JLink] retro_ciaa",
+            "cwd": "${workspaceFolder}",
+            "executable": "${workspaceFolder}/build/binary/retro_ciaa/arm-none-eabi-gcc/debug_cortex-m4_O0/${workspaceFolderBasename}.elf",
+            "request": "launch",
+            "type": "cortex-debug",
+            "servertype": "jlink"
+        },
+        {
+            "name": "[OpenOCD] retro_ciaa-m4",
+            "cwd": "${workspaceFolder}",
+            "executable": "${workspaceFolder}/build/binary/retro_ciaa/arm-none-eabi-gcc/debug_cortex-m4_O0/${workspaceFolderBasename}.elf",
+            "request": "launch",
+            "type": "cortex-debug",
+            "servertype": "openocd",
+            "numberOfProcessors": 2,
+            "targetProcessor": 0,
+            "configFiles": [
+                "${env:LIB_EMBEDULAR_PATH}/embedul.ar/source/arch/arm-cortex/lpc/18xx_43xx/openocd/retro_ciaa-ftdi.cfg"
+            ],
+            "svdFile": "${env:LIB_EMBEDULAR_PATH}/embedul.ar/source/arch/arm-cortex/lpc/18xx_43xx/svd/LPC43xx_43Sxx.svd"
+        },
+        {
+            "name": "[OpenOCD] nucleo_144-stm32f429zi",
+            "cwd": "${workspaceFolder}",
+            "executable": "${workspaceFolder}/build/binary/nucleo_144-stm32f429zi/arm-none-eabi-gcc/debug_cortex-m4_O0/${workspaceFolderBasename}.elf",
+            "request": "launch",
+            "type": "cortex-debug",
+            "servertype": "openocd",
+            "configFiles": [
+                "${env:LIB_EMBEDULAR_PATH}/embedul.ar/source/arch/arm-cortex/stm32/f4/openocd/nucleo_144.cfg"
+            ],
+            "svdFile": "${env:LIB_EMBEDULAR_PATH}/embedul.ar/source/arch/arm-cortex/stm32/f4/svd/STM32F429.svd"
+        }
+    ]
+}

@@ -1,0 +1,19 @@
+{
+    "cortex-debug.enableTelemetry": false,
+    "cortex-debug.registerUseNaturalFormat": false,
+    "editor.detectIndentation": false,
+    "editor.stickyTabStops": true,
+    "editor.insertSpaces": true,
+    "editor.tabSize": 4,
+    "editor.rulers": [
+        {"column":   0, "color": "#5a5a5a80"}, // left boundary is 50% opaque
+        {"column":   4, "color": "#5a5a5a20"}, // tab stops are 12.5% opaque
+        {"column":   8, "color": "#5a5a5a20"},
+        {"column":  12, "color": "#5a5a5a20"},
+        {"column":  16, "color": "#5a5a5a20"},
+        {"column":  20, "color": "#5a5a5a20"},
+        {"column":  40, "color": "#5a5a5a20"}, // center line
+        {"column":  76, "color": "#5a5a5a20"}, // right rule minus one
+        {"column":  80, "color": "#5a5a5a80"}, // right rule
+    ]
+}

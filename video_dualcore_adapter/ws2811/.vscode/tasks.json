@@ -1,0 +1,59 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Debug",
+            "detail": "Build w/debug symbols and no optimization.",
+            "type": "shell",
+            "command": "intercept-build make BUILD_TARGET=${input:target} OLEVEL=0 DEBUG=yes FLASH_TOOL=${input:gdb-flash-tool}",
+            "problemMatcher": [],
+            "group": "build"
+        },
+        {
+            "label": "Release",
+            "detail": "Build w/optimizations.",
+            "type": "shell",
+            "command": "intercept-build make BUILD_TARGET=${input:target} OLEVEL=${input:optimization} DEBUG=no FLASH_TOOL=${input:gdb-flash-tool}",
+            "problemMatcher": [],
+            "group": "build"
+        }
+    ],
+    "inputs": [
+        {
+            "id": "target",
+            "type": "pickString",
+            "description": "Hardware target",
+            "options": [
+                "edu_ciaa_retro_poncho-m0",
+                "retro_ciaa-m0",
+            ],
+            "default": "edu_ciaa_retro_poncho-m0"
+        },
+        {
+            "id": "optimization",
+            "type": "pickString",
+            "description": "Optimization level",
+            "options": [
+                "1",
+                "2",
+                "3",
+                "s",
+                "z"
+            ],
+            "default": "3"
+        },
+        {
+            "id": "gdb-flash-tool",
+            "type": "pickString",
+            "description": "Flash firmware?",
+            "options": [
+                "no",
+                "openocd-bin flash",
+                "segger-jlink flash"
+            ],
+            "default": "no"
+        }
+    ]
+}

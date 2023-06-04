@@ -1,0 +1,11 @@
+build*/
+.cache/
+*.parse/
+*.eva/
+doctrees/
+.directory
+compile_commands.json
+*.flac
+*.dump
+*.code-workspace
+disk.bin
